@@ -18,9 +18,10 @@ public class TrelloController {
     private TrelloClient trelloClient;
 
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
-    public void getTrelloBoards() {
+    public List<TrelloBoradDto> getTrelloBoards() {
+        return trelloClient.getTrelloBoards();
 
-        List<TrelloBoradDto> trelloBoards = trelloClient.getTrelloBoards();
+        //List<TrelloBoradDto> trelloBoards = trelloClient.getTrelloBoards();
          //   trelloBoards.stream()
          //           .filter(s->s.getName().contains("Kodilla"))
          //           .filter(s->!s.getId().isEmpty())
@@ -28,21 +29,21 @@ public class TrelloController {
          //           .forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
          //trelloBoards.forEach(trelloBoardDto -> System.out.println(trelloBoardDto.getId() + " " + trelloBoardDto.getName()));
 
-         trelloBoards.forEach(TrelloBoradDto -> {
+         //trelloBoards.forEach(TrelloBoradDto -> {
 
-            System.out.println(TrelloBoradDto.getName() + " - " + TrelloBoradDto.getId());
+         //   System.out.println(TrelloBoradDto.getName() + " - " + TrelloBoradDto.getId());
 
-            System.out.println("This board contains lists: ");
+         //   System.out.println("This board contains lists: ");
 
-            TrelloBoradDto.getLists().forEach(trelloList ->
-                    System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
+         //   TrelloBoradDto.getLists().forEach(trelloList ->
+         //           System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
 
-        });
+       // });
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "createTrelloCard")
     public CreatedTrelloCard createTrelloCard(@RequestBody TrelloCardDto trelloCardDto){
-        return trelloClient.createNewCard(trelloCardDto);
+        return trelloClient.createdNewCard(trelloCardDto);
     }
 
 }
