@@ -1,4 +1,4 @@
-package com.crud.task.config;
+package com.crud.task.trello;
 
 import lombok.Getter;
 import org.springframework.beans.factory.annotation.Value;
@@ -13,4 +13,6 @@ public class TrelloConfig {
     private String trelloAppKey;
     @Value("${trello.app.token}")
     private String trelloToken;
+    @Value("${trello.app.username}")
+    private String trelloUsername;
 }

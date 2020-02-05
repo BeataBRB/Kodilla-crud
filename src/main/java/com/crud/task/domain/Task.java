@@ -1,13 +1,10 @@
 package com.crud.task.domain;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
-
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,4 +20,5 @@ public class Task {
 
     @Column(name = "description")
     private String content;
+
 }
