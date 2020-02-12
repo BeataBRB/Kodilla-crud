@@ -35,6 +35,7 @@ public class TrelloClientTest {
         when(trelloConfig.getTrelloApiEndpoint()).thenReturn("http://test.com");
         when(trelloConfig.getTrelloAppKey()).thenReturn("test");
         when(trelloConfig.getTrelloToken()).thenReturn("test");
+        when(trelloConfig.getTrelloUsername()).thenReturn("beatabliniewska");
     }
 
     @Test
@@ -46,6 +47,7 @@ public class TrelloClientTest {
         URI uri = new URI("http://test.com/members/beatabliniewska/boards?key=test&token=test&fields=name,id&lists=all");
 
         when(restTemplate.getForObject(uri, TrelloBoradDto[].class)).thenReturn(trelloBoards);
+
         // When
         List<TrelloBoradDto> fetchedTrelloBoards = trelloClient.getTrelloBoards();
         // Then
